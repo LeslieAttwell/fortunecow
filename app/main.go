@@ -126,7 +126,7 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 *******************************
 */
 func handleRequests() {
-	http.HandleFunc("/",homePage) // Point "homePage" to default Fortune function"
+	http.HandleFunc("/",returnFortune) // Point "homePage" to default Fortune function"
 	http.HandleFunc("/fortune", returnFortune)
 	http.HandleFunc("/cow", returnCowsay)
 	http.HandleFunc("/tux", returnTuxsay)
