@@ -1,7 +1,17 @@
 # Fortune Cookie REST API
 
-This is a basic fortune cookie API using GOLANG. Logic in golang still need to be improved, using switches with a common interface.
+This is a basic fortune cookie API written in Go giving JSON output. Logic in golang still need to be improved, using switches with a common interface.
+<br>
+`[{"cookie": "message"}]`
 
+## Usage
+http://<your-url>:8081/<option>
+
+Options:
+* fortune - Default fortune cookie output
+* cow - fortune cookie piped to cowsay -b
+* tux - fortune cookie piped to cowsay -f tux
+* tux tips - fortune fortune ubuntu-server-tips piped to cowsay -f tux
 
 ## Build
 `docker build -t dockerleslie/fortunecow:1.0 .`
