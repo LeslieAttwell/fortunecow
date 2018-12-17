@@ -1,8 +1,11 @@
 # Fortune Cookie REST API
 
+
 This is a basic fortune cookie API written in Go giving JSON output. Logic in golang still need to be improved, using switches with a common interface.
-<br>
-`[{"cookie": "message"}]`
+
+`[{"cookie": "message"}]`<br>
+
+![logo](images/fortunecow-logo.png)
 
 ## Usage
 `http://<your-url>:8081/<option>`
@@ -46,4 +49,4 @@ pipeline {
     }
 }
 ```
-
+![jenkins-sample](images/fortunecow-jenkins.png)
