@@ -2,7 +2,7 @@
 import groovy.json.JsonSlurper
 def getFortuneCookie = {
    
-    fortuneJSON = sh(returnStdout: true, script: 'curl -q http://192.168.1.100:8081/fortune')
+    fortuneJSON = sh(returnStdout: true, script: 'curl -s http://<myhost>:8081/cow')
 
 }
 
