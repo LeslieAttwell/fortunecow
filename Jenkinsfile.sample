@@ -1,0 +1,29 @@
+//import groovy.json.JsonSlurperClassic
+import groovy.json.JsonSlurper
+def getFortuneCookie = {
+   
+    fortuneJSON = sh(returnStdout: true, script: 'curl -q http://192.168.1.100:8081/fortune')
+
+}
+
+node ('master') {
+    script {
+        getFortuneCookie()
+
+    def myObject = readJSON text: fortuneJSON;
+    echo myObject.cookie[0];
+    //echo ${fortuneJSON}
+    }
+    
+}
+
+pipeline {
+    agent any
+    stages {
+        stage('echo') {
+            steps {
+                sh "echo done....fortuneJSON"
+            }
+        }
+    }
+}

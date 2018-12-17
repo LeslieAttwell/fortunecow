@@ -1,0 +1,71 @@
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"encoding/json"
+	"os/exec"
+)
+
+// (2) Sample
+type Article struct {
+    Title string `json:"Title"`
+    Desc string `json:"desc"`
+    Content string `json:"content"`
+}
+type Fortune struct {
+    Cookie string `json:"cookie"`
+}
+
+type Fortunes []Fortune 
+
+type Articles []Article
+
+func returnAllArticles(w http.ResponseWriter, r *http.Request){
+    articles := Articles{
+        Article{Title: "Hello", Desc: "Article Description", Content: "Article Content"},
+        Article{Title: "Hello 2", Desc: "Article Description", Content: "Article Content"},
+    }    
+    fmt.Println("Endpoint Hit: returnAllArticles")
+    
+    json.NewEncoder(w).Encode(articles)
+}
+
+func returnFortuneCookie(w http.ResponseWriter, r *http.Request) {
+	fortuneCommand, err := exec.Command("fortune").Output() 
+    if err != nil {
+        log.Fatal(err)
+    }
+	//	
+	fortunes := Fortunes{
+		Fortune{Cookie: string(fortuneCommand)},
+		//Fortune{Cookie: string(fortuneCommand)},
+	}
+
+
+
+	fmt.Println("Endpoint Hit: returnFortuneCookie")
+
+	json.NewEncoder(w).Encode(fortunes)
+
+}
+
+
+// (1) Set Homepage Function to handle all requests 
+func homePage(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Homepage Endpoint Hit")
+}
+
+// (1) Handle Request Function
+func handleRequests() {
+	http.HandleFunc("/",homePage)
+	http.HandleFunc("/articles", returnAllArticles)
+	http.HandleFunc("/fortune", returnFortuneCookie)
+	log.Fatal(http.ListenAndServe(":8081",nil))
+}
+
+// (1) Add Entry Point to REST Server
+func main() {
+	handleRequests()
+}
