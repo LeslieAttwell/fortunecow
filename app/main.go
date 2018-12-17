@@ -4,7 +4,9 @@ Synopsis: Simple Fortune cookie api
  Date: 16 December 2018
  Usage: 
 	- $URL/fortune
-	- $URL/cowsay
+	- $URL/cow
+	- $URL/tux
+	- $URL/tuxtips
 
 To Do:
 	* create common interface for exec function

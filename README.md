@@ -14,7 +14,7 @@ Options:
 * fortune - Default fortune cookie output
 * cow - fortune cookie piped to cowsay -b
 * tux - fortune cookie piped to cowsay -f tux
-* tuxtips - fortune fortune ubuntu-server-tips piped to cowsay -f tux
+* tuxtips - fortune ubuntu-server-tips piped to cowsay -f tux
 
 ## Build
 `docker build -t dockerleslie/fortunecow:1.0 .`
