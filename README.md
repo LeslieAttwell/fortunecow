@@ -5,7 +5,7 @@ This is a basic fortune cookie API written in Go giving JSON output. Logic in go
 `[{"cookie": "message"}]`
 
 ## Usage
-http://<your-url>:8081/<option>
+`http://<your-url>:8081/<option>`
 
 Options:
 * fortune - Default fortune cookie output
